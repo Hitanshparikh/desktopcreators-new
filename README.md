@@ -1,4 +1,27 @@
 
+<div align="center">
+	<img src="https://sketchfab.com/static/images/press/logos/logo-sketchfab-3d.svg" alt="3D" width="80" style="margin-bottom: 0.5rem;" />
+  
+	<h1>Desktop Creators</h1>
+  
+	<p>
+		<b>Modern IT Solutions Website</b><br/>
+		Built with React, TypeScript, Vite, shadcn-ui, and Tailwind CSS
+	</p>
+  
+	<p>
+		<a href="https://github.com/Hitanshparikh/desktopcreators-new"><img src="https://img.shields.io/github/stars/Hitanshparikh/desktopcreators-new?style=for-the-badge&color=4F46E5&logo=github" alt="GitHub stars"></a>
+		<a href="https://github.com/Hitanshparikh/desktopcreators-new"><img src="https://img.shields.io/github/forks/Hitanshparikh/desktopcreators-new?style=for-the-badge&color=06b6d4&logo=github" alt="GitHub forks"></a>
+		<a href="https://github.com/Hitanshparikh/desktopcreators-new/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Hitanshparikh/desktopcreators-new?style=for-the-badge&color=10b981" alt="MIT License"></a>
+		<img src="https://img.shields.io/badge/Made%20with-TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+		<img src="https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61dafb" alt="React"/>
+		<img src="https://img.shields.io/badge/TailwindCSS-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
+	</p>
+
+	<a href="#demo-3d"><img src="https://raw.githubusercontent.com/mattdesl/3d-logo/main/3d-logo.gif" alt="3D Demo" width="300"/></a>
+  
+</div>
+
 # Desktop Creators
 
 Desktop Creators is a modern, professional IT solutions website built with React, TypeScript, Vite, shadcn-ui, and Tailwind CSS. It showcases services, industries, testimonials, and contact information for an IT company based in Anand, Gujarat.
