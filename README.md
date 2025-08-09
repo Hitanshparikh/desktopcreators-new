@@ -1,73 +1,67 @@
-# Welcome to your Lovable project
 
-## Project info
+# Desktop Creators
 
-**URL**: https://lovable.dev/projects/42b1f968-ad92-4bde-9f20-d716dbf9be20
+Desktop Creators is a modern, professional IT solutions website built with React, TypeScript, Vite, shadcn-ui, and Tailwind CSS. It showcases services, industries, testimonials, and contact information for an IT company based in Anand, Gujarat.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Beautiful, responsive landing page
+- Solutions/services grid with images
+- Industry-specific solutions
+- Testimonials section
+- Interactive Google Maps integration
+- Contact form with validation
+- Modern UI components (shadcn-ui)
+- Mobile-friendly navigation and layout
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/42b1f968-ad92-4bde-9f20-d716dbf9be20) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (v18 or newer recommended)
+- npm (v9 or newer recommended)
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Clone the repository:**
+	```sh
+	git clone https://github.com/Hitanshparikh/desktopcreators-new.git
+	cd desktopcreators-new
+	```
+2. **Install dependencies:**
+	```sh
+	npm install
+	```
+3. **Start the development server:**
+	```sh
+	npm run dev
+	```
+4. Open [http://localhost:8080](http://localhost:8080) in your browser to view the site.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Project Structure
 
-Follow these steps:
+- `src/components/` — All React components (Hero, Footer, ServicesGrid, etc.)
+- `src/assets/` — Images and static assets
+- `src/pages/` — Main page and 404 page
+- `public/` — Static files
+- `tailwind.config.ts` — Tailwind CSS configuration
+- `vite.config.ts` — Vite configuration
 
+## Customization
+
+- Update company info, services, and images in the respective components in `src/components/`.
+- Change theme and styles via Tailwind and shadcn-ui.
+
+## Deployment
+
+You can deploy this project to any static hosting provider (Vercel, Netlify, GitHub Pages, etc.).
+
+**Build for production:**
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm run build
 ```
+The output will be in the `dist/` folder.
 
-**Edit a file directly in GitHub**
+## License
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/42b1f968-ad92-4bde-9f20-d716dbf9be20) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is open source and available under the [MIT License](LICENSE).
