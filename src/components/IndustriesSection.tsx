@@ -91,7 +91,7 @@ const IndustriesSection = () => {
   ];
 
   return (
-    <section id="industries" className="py-20 relative">
+    <section id="industries" className="py-20 relative" style={{background: 'linear-gradient(135deg, hsl(220, 15%, 6%), hsl(220, 15%, 8%))'}}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">

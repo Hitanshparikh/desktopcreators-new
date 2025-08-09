@@ -1,6 +1,8 @@
+
 import { ArrowRight, Shield, Cpu, Network, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-server-room.jpg';
+import { Canvas } from '@react-three/fiber';
+import { Stars, OrbitControls } from '@react-three/drei';
 
 const HeroSection = () => {
   const stats = [
@@ -10,41 +12,25 @@ const HeroSection = () => {
     { number: '100%', label: 'Client Satisfaction' },
   ];
 
-  const floatingIcons = [
-    { Icon: Shield, position: 'top-20 left-20', delay: '0s' },
-    { Icon: Cpu, position: 'top-32 right-32', delay: '1s' },
-    { Icon: Network, position: 'bottom-32 left-32', delay: '2s' },
-    { Icon: Award, position: 'bottom-20 right-20', delay: '3s' },
-  ];
+
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with Parallax Effect */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      >
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+  <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden select-none">
+      {/* Futuristic 3D Animated Background */}
+      <div className="absolute inset-0 z-0">
+        {/* 3D moving stars background */}
+        <Canvas style={{ position: 'absolute', inset: 0, zIndex: 0 }} camera={{ position: [0, 0, 8], fov: 60 }}>
+          <ambientLight intensity={0.7} />
+          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={2} />
+          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+        </Canvas>
+  <div className="absolute inset-0 bg-background/10 pointer-events-none" style={{zIndex: 1}}></div>
       </div>
 
-      {/* Floating Background Icons */}
-      {floatingIcons.map(({ Icon, position, delay }, index) => (
-        <div
-          key={index}
-          className={`absolute ${position} opacity-20 z-10 float-animation`}
-          style={{ animationDelay: delay }}
-        >
-          <Icon className="w-12 h-12 text-primary" />
-        </div>
-      ))}
+
 
       {/* Main Content */}
-      <div className="relative z-20 container mx-auto px-4 text-center">
+  <div className="relative z-20 container mx-auto px-4 text-center select-none">
         <div className="max-w-5xl mx-auto">
           {/* Badge - Responsive margin to avoid navbar overlap */}
           <div className="inline-flex items-center glass-card px-6 py-3 rounded-full mb-8 mt-24 sm:mt-12 md:mt-0">

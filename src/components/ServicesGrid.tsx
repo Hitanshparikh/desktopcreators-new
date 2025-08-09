@@ -14,6 +14,8 @@ import classroomImage from '@/assets/smart-classroom.jpg';
 import smartpremises from '@/assets/smart.jpeg';
 import conference from '@/assets/conference.jpg';
 import amc from '@/assets/amc.png';
+
+import React, { useRef, useState } from 'react';
 import cctvmain from '@/assets/cctv-main.jpg';
 import serverRoomImage from '@/assets/hero-server-room.jpg';
 
@@ -85,8 +87,41 @@ const ServicesGrid = () => {
     }
   ];
 
+  // Helper for magnetic effect
+  function useMagnet3D() {
+    const [style, setStyle] = useState({});
+    const [showOverlay, setShowOverlay] = useState(true);
+    const ref = useRef(null);
+    function onMouseMove(e: React.MouseEvent) {
+      const el = ref.current as HTMLDivElement | null;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const moveX = ((x - centerX) / centerX) * 16; // max 16px
+      const moveY = ((y - centerY) / centerY) * 12; // max 12px
+      const rotateY = ((x - centerX) / centerX) * 10; // max 10deg
+      const rotateX = -((y - centerY) / centerY) * 8; // max 8deg
+      setStyle({
+        transform: `scale(1.13) translate(${moveX}px, ${moveY}px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
+        transition: 'transform 0.18s cubic-bezier(.25,.46,.45,.94)',
+      });
+      setShowOverlay(false);
+    }
+    function onMouseLeave() {
+      setStyle({
+        transform: 'scale(1) translate(0,0) rotateY(0deg) rotateX(0deg)',
+        transition: 'transform 0.4s cubic-bezier(.25,.46,.45,.94)',
+      });
+      setShowOverlay(true);
+    }
+    return { ref, style, onMouseMove, onMouseLeave, showOverlay };
+  }
+
   return (
-    <section id="solutions" className="py-20 relative">
+  <section id="solutions" className="py-20 relative" style={{background: 'linear-gradient(135deg, hsl(220, 15%, 6%), hsl(220, 15%, 8%))'}}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -103,21 +138,32 @@ const ServicesGrid = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
+            // Magnetic 3D effect for each card
+            const magnet = useMagnet3D();
             return (
               <div
                 key={index}
                 className="group glass-card p-6 rounded-2xl hover:scale-105 transition-all duration-500 cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: `${index * 0.1}s`, perspective: '900px' }}
               >
-                {/* Service Image */}
+                {/* Service Image with magnetic 3D effect */}
                 {service.image && (
-                  <div className="relative mb-6 rounded-xl overflow-hidden">
-                    <img 
-                      src={service.image} 
+                  <div
+                    className="relative mb-6 rounded-xl overflow-hidden"
+                    ref={magnet.ref}
+                    onMouseMove={magnet.onMouseMove}
+                    onMouseLeave={magnet.onMouseLeave}
+                    style={{ perspective: '900px' }}
+                  >
+                    <img
+                      src={service.image}
                       alt={service.title}
-                      className="w-full h-32 object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-32 object-cover transition-transform duration-300 will-change-transform"
+                      style={{ ...magnet.style, transformStyle: 'preserve-3d' }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                    {magnet.showOverlay && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
+                    )}
                   </div>
                 )}
 

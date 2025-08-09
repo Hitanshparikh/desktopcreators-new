@@ -1,6 +1,22 @@
+
+import { useEffect, useRef } from 'react';
 import { Calendar, Users, Award, Target, Lightbulb, Heart } from 'lucide-react';
 
 const AboutSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const onScroll = () => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        section.classList.add('animate-fade-in-up');
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   const milestones = [
     { year: '2000', event: 'Desktop Creators established in Anand', icon: Calendar },
     { year: '2005', event: 'Expanded to networking solutions', icon: Target },
@@ -41,14 +57,19 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative">
-      <div className="container mx-auto px-4">
+  <section id="about" className="py-20 relative overflow-hidden" style={{background: 'linear-gradient(135deg, hsl(220, 15%, 6%), hsl(220, 15%, 8%))'}}>
+      <div ref={sectionRef} className="transition-all duration-700 opacity-0">
+        {/* Subtle animated gradient background for About section */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+  {/* No overlay, just the hero-style gradient background */}
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 glow-text border-b-4 border-gradient inline-block pb-2">
             <span className="text-gradient">About Desktop Creators</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
             Since 2000, we've been Anand's trusted technology partner, 
             transforming businesses with innovative IT solutions.
           </p>
@@ -146,6 +167,7 @@ const AboutSection = () => {
               local business needs to deliver solutions that truly make a difference.
             </p>
           </div>
+        </div>
         </div>
       </div>
     </section>
