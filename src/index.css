@@ -1,3 +1,11 @@
+/* Premium IT Solutions Design System - Desktop Creators */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* 3D hover effect for solution images */
 
 .group:hover .group-hover\:rotate-y-12 {
@@ -23,14 +31,6 @@
     opacity: 1 !important;
     animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Premium IT Solutions Design System - Desktop Creators */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @layer base {
      :root {
         /* Dark Premium Theme */
