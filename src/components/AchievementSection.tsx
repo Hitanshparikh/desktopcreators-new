@@ -1,4 +1,5 @@
 import { Award, Trophy } from 'lucide-react';
+import awardImage from '@/assets/award.jpg';
 
 const AchievementSection = () => {
   return (
@@ -23,7 +24,7 @@ const AchievementSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-glow/20 blur-3xl group-hover:blur-2xl transition-all duration-500"></div>
                 <div className="relative rounded-xl overflow-hidden shadow-2xl">
                   <img 
-                    src="/award.jpg" 
+                    src={awardImage} 
                     alt="NCN TOP SI Partner Awards 2025" 
                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                   />
